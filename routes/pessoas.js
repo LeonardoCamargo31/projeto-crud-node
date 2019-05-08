@@ -2,7 +2,7 @@ const express = require('express')
 const pessoasController = require('../controllers/pessoas')
 
 //minha função defino as rotas, e retorno o router
-const pessoasRouter = ({ connection }) => {//injeto as dependencias dependencies.connection
+const pessoasRouter = (connection ) => {
     const router = express.Router()
 
     //o bind, ele vai criar outra função, baseada nessa pessoasController.index
