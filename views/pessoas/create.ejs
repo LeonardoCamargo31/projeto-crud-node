@@ -1,21 +1,21 @@
 <% include ../partials/header.ejs %>
 <div class="container">
-    <h1>Pessoas</h1>
-    <p><a href="/pessoas">Voltar a lista</a></p>
-    <form method="POST" action="/pessoas/create">
+    <h2>Inserir nova pessoa</h2>
+    <p><a class="btn btn-primary" href="/pessoas">Voltar a lista</a></p>
+    <form id="form" method="POST" action="/pessoas/create">
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome">
         </div>
         <div class="form-group">
             <label for="nascimento">Nascimento</label>
-            <input type="text" name="nascimento" id="nascimento" class="form-control" placeholder="Nascimento">
+            <input type="text" name="nascimento" id="nascimento" class="form-control data" placeholder="Nascimento">
         </div>
         <div class="form-group">
             <label for="cargo">Cargo</label>
             <input type="text" name="cargo" id="cargo" class="form-control" placeholder="Cargo">
         </div>
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="submit" id="btn" class="btn btn-primary">Salvar</button>
     </form>
 </div><!-- /.container -->
 <% include ../partials/footer.ejs %>

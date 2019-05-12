@@ -4,16 +4,27 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = process.env.PORT || 3000
 
+//local
+const bdLocalhost = {
+    host: '127.0.0.1',
+    port: '3307',
+    user: 'root',
+    password: '',
+    database: 'cadastro'
+}
+//producao
+const bdProduction = {
+    host: 'den1.mysql6.gear.host',
+    user: 'projetocrud',
+    password: 'Lz9B!9-op8dc',
+    database: 'projetocrud'
+}
+
+
 const knex = require('knex')({
     //passamos um obj de configuração ao knex
     client: 'mysql2',
-    connection: {
-        host: '127.0.0.1',
-        port: '3307',
-        user: 'root',
-        password: '',
-        database: 'cadastro'
-    }
+    connection: bdProduction
 })
 
 const pessoas = require('./routes/pessoas')
