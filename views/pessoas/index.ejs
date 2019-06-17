@@ -5,12 +5,16 @@
     <table class="table table-striped table-hover table-bordered">
         <tr>
             <th>Nome</th>
+            <th>Cargo</th>
             <th>Ações</th>
         </tr>
-        <% pessoas.map(pessoa =>{ %>
+        <% results.data.map(pessoa =>{ %>
         <tr>
             <td>
                 <%= pessoa.nome %>
+            </td>
+            <td>
+                <%= pessoa.cargo %>
             </td>
             <td>
                 <div class="btn-group">
@@ -21,5 +25,19 @@
         </tr>
         <% }) %>
     </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <% if(results.pagination.currentPage>0){ %>
+            <li class="page-item"><a class="page-link" href="/pessoas?page=<%= parseInt(results.pagination.currentPage)-1 %>">Previous</a></li>
+            <% } %>
+            <% for(let i =0; i<results.pagination.pages; i++){ %>
+            <li class="page-item <% if(i==results.pagination.currentPage){ %>active<% } %>"><a class="page-link" href="/pessoas?page=<%= i %>">
+                    <%= (i+1) %></a></li>
+            <% } %>
+            <% if(results.pagination.currentPage<(results.pagination.pages-1)){ %>
+            <li class="page-item"><a class="page-link" href="/pessoas?page=<%= parseInt(results.pagination.currentPage)+1 %>">Next</a></li>
+            <% } %>
+        </ul>
+    </nav>
 </div><!-- /.container -->
 <% include ../partials/footer.ejs %>
